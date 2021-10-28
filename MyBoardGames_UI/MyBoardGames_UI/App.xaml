@@ -9,21 +9,22 @@
         <ResourceDictionary>
             <!--Light Theme Colors-->
             <Color x:Key="TextColorLightTheme">Black</Color>
-            <Color x:Key="AndroidLightThemeBackground">White</Color>
+            <Color x:Key="PrimaryLightThemeBackground">White</Color>
             
             <!--Dark Theme Colors-->
             <Color x:Key="TextColorDarkTheme">#Eaeaea</Color>
-            <Color x:Key="AndroidDarkThemeBackground">#363636</Color>
+            <Color x:Key="PrimaryDarkThemeBackground">#363636</Color>
             <Color x:Key="DisabledButtonTextColorDark">#979796</Color>
             <Color x:Key="EnabledSaveButtonDark">#57cf42</Color>
             <Color x:Key="DisabledSaveButtonDark">#8bcb80</Color>
             <Color x:Key="EnabledDeleteButtonDark">#Be4f4f</Color>
             <Color x:Key="DisabledDeleteButtonDark">#C29898</Color>
+            <Color x:Key="SecondaryDarkThemeBackground">#727272</Color>
             
             <Color x:Key="Primary">#2196F3</Color>
             <Style x:Key="ShellContentPageBackgroundColor"
                    TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource AndroidLightThemeBackground}, Dark={StaticResource AndroidDarkThemeBackground}}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimaryLightThemeBackground}, Dark={StaticResource PrimaryDarkThemeBackground}}" />
             </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLightTheme}, Dark={StaticResource TextColorDarkTheme}}"/>

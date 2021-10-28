@@ -79,7 +79,5 @@ namespace MyBoardGames_UI.ViewModels
                 IsBusy = false;
             }
         }
-
-
     }
 }

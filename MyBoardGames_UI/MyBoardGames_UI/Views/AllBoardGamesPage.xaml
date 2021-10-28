@@ -16,22 +16,24 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView x:DataType="vm:AllBoardGamesViewModel" 
-                    Command="{Binding LoadGamesCommand}"
-                    IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                     Command="{Binding LoadGamesCommand}"
+                     IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                     Margin="30">
             <CollectionView x:Name="GamesListView"
-                        ItemsSource="{Binding Games}"
-                        SelectionMode="None">
+                            ItemsSource="{Binding Games}"
+                            SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10" x:DataType="model:Game">
                             <Label Text="{Binding Name}"
-                               LineBreakMode="NoWrap"
-                               Style="{DynamicResource ListItemTextStyle}"
-                               FontSize="Medium" />
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemTextStyle}"
+                                   FontSize="Large" />
+                            <BoxView Color="Black" HeightRequest="1" Margin="0,10,0,0" />
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:AllBoardGamesViewModel}}, Path=ItemTapped}"
-                                                  CommandParameter="{Binding .}" />
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type local:AllBoardGamesViewModel}}, Path=ItemTapped}"
+                                                      CommandParameter="{Binding .}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>

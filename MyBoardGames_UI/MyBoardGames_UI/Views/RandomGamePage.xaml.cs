@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyBoardGames_UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace MyBoardGames_UI.Views
         public RandomGamePage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((RandomGameViewModel)BindingContext).OnAppearing();
         }
     }
 }
