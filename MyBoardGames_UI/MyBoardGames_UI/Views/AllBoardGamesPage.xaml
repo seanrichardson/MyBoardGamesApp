@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MyBoardGames_UI.ViewModels"
+             xmlns:model="clr-namespace:MyBoardGames_UI.Models"
+             xmlns:local="clr-namespace:MyBoardGames_UI.ViewModels"
+             x:Class="MyBoardGames_UI.Views.AllBoardGamesPage"
+             Style="{StaticResource ShellContentPageBackgroundColor}"
+             Shell.PresentationMode="ModalAnimated"
+             Title="All Games">
+    <ContentPage.BindingContext>
+        <vm:AllBoardGamesViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Game" Command="{Binding AddGameCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RefreshView x:DataType="vm:AllBoardGamesViewModel" 
+                    Command="{Binding LoadGamesCommand}"
+                    IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView x:Name="GamesListView"
+                        ItemsSource="{Binding Games}"
+                        SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Game">
+                            <Label Text="{Binding Name}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="Medium" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:AllBoardGamesViewModel}}, Path=ItemTapped}"
+                                                  CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyBoardGames_UI.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Light Theme Colors-->
+            <Color x:Key="TextColorLightTheme">Black</Color>
+            <Color x:Key="AndroidLightThemeBackground">White</Color>
+            
+            <!--Dark Theme Colors-->
+            <Color x:Key="TextColorDarkTheme">#Eaeaea</Color>
+            <Color x:Key="AndroidDarkThemeBackground">#363636</Color>
+            <Color x:Key="DisabledButtonTextColorDark">#979796</Color>
+            <Color x:Key="EnabledSaveButtonDark">#57cf42</Color>
+            <Color x:Key="DisabledSaveButtonDark">#8bcb80</Color>
+            <Color x:Key="EnabledDeleteButtonDark">#Be4f4f</Color>
+            <Color x:Key="DisabledDeleteButtonDark">#C29898</Color>
+            
+            <Color x:Key="Primary">#2196F3</Color>
+            <Style x:Key="ShellContentPageBackgroundColor"
+                   TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource AndroidLightThemeBackground}, Dark={StaticResource AndroidDarkThemeBackground}}" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLightTheme}, Dark={StaticResource TextColorDarkTheme}}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <Style x:Key="SaveButtonStyle" 
+                    TargetType="Button">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource EnabledSaveButtonDark}" />
+                                    <Setter Property="TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledSaveButtonDark}" />
+                                    <Setter Property="TextColor" Value="{StaticResource DisabledButtonTextColorDark}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <Style x:Key="DeleteButtonStyle" 
+                    TargetType="Button">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource EnabledDeleteButtonDark}" />
+                                    <Setter Property="TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledDeleteButtonDark}" />
+                                    <Setter Property="TextColor" Value="{StaticResource DisabledButtonTextColorDark}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
