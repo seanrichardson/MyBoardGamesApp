@@ -86,7 +86,7 @@ namespace MyBoardGames_UI.ViewModels
             try
             {
                 var allGames = this.DataStore.GetResult().GetAllGamesAsync();
-                var gamesThatMatchCriteria = allGames.Result.Where(g => g.MinutesToPlay >= int.Parse(MinutesToPlay) &&
+                var gamesThatMatchCriteria = allGames.Result.Where(g => g.MinutesToPlay <= int.Parse(MinutesToPlay) &&
                     g.MaxNumberOfPlayers >= int.Parse(NumOfPlayers) &&
                     g.MinNumberOfPlayers <= int.Parse(NumOfPlayers)).ToList();
 

@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MyBoardGames_UI.Views"
-       Title="MyBoardGames_UI"
+       Title="My Board Games"
        x:Class="MyBoardGames_UI.AppShell">
 
     <!--
@@ -33,14 +33,6 @@
         <ShellContent Title="Library" Route="AllBoardGamesPage" ContentTemplate="{DataTemplate local:AllBoardGamesPage}" />
         <ShellContent Title="Random" Route="RandomGamePage" ContentTemplate="{DataTemplate local:RandomGamePage}" />
     </TabBar>
-
-    <!--
-        If you would like to navigate to this content you can do so by calling
-        await Shell.Current.GoToAsync("//LoginPage");
-    -->
-    <!--<TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>-->
 
 
 </Shell>

@@ -1,0 +1,28 @@
+Features to Add:
+
+App in General:
+	/- Change App Icon and Name
+	- Fix the App Icon so it looks better. It looks zoomed in
+	- Maybe figure out how to add / display rules with each game?
+Library Page:
+	- Magnifying glass search button in tool bar
+	- Add batch upload functionality
+	- Change "Add Game" to a plus icon
+	- Add Icons to the shell tab bar
+	- Order the games alphabetically by name
+	- Add the ability to Favorite certain games?
+Add Game Page:
+	- Change "# of Minutes to Play" to "Minutes to Play"
+	- Add a time picker to Minutes to Play
+	- Fix Dark Theme vs Light Theme color issues surrounding the buttons
+Game Detail Page:
+	- Change "# of Minutes to Play" to "Minutes to Play"
+	- Add a time picker to Minutes to Play
+	- Fix Dark Theme vs Light Theme color issues surrounding the buttons
+Random Generator Page:
+	/- BUG - with games that are greater than the number of minutes to play are being displayed
+	- Change "Amount of Time to Play:" to "How Many Minutes:"
+	- Add the ability to generate games using only favorited games or not
+	- Only require one of the fields to generate a game
+	- Fix UI colors associated with Dark Theme and Light Theme
+	
