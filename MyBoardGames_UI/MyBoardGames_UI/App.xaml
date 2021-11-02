@@ -20,8 +20,8 @@
             <Color x:Key="EnabledDeleteButtonDark">#Be4f4f</Color>
             <Color x:Key="DisabledDeleteButtonDark">#C29898</Color>
             <Color x:Key="SecondaryDarkThemeBackground">#727272</Color>
-            
-            <Color x:Key="Primary">#2196F3</Color>
+
+            <Color x:Key="Primary">#03124c</Color>
             <Style x:Key="ShellContentPageBackgroundColor"
                    TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PrimaryLightThemeBackground}, Dark={StaticResource PrimaryDarkThemeBackground}}" />

@@ -12,7 +12,8 @@
         <vm:AllBoardGamesViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Game" Command="{Binding AddGameCommand}" />
+        <ToolbarItem IconImageSource="icon_add.png" Command="{Binding AddGameCommand}" />
+        <ToolbarItem Text="Add All" Command="{Binding AddAllGamesCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView x:DataType="vm:AllBoardGamesViewModel" 
