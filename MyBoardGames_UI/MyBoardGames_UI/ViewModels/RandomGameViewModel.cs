@@ -65,13 +65,30 @@ namespace MyBoardGames_UI.ViewModels
         /// <returns></returns>
         public bool ValidateGenerate()
         {
-            //If MinutesToPlay and NumOfPlayers is not empty and they are both numbers return true
-            if (!string.IsNullOrEmpty(MinutesToPlay) && 
-                !string.IsNullOrEmpty(NumOfPlayers) &&
-                int.TryParse(MinutesToPlay, out int min) &&
-                int.TryParse(NumOfPlayers, out int players))
+            //If MinutesToPlay is not empty and the value is a number
+            if (!string.IsNullOrEmpty(MinutesToPlay) &&
+                int.TryParse(MinutesToPlay, out int min1))
             {
-                return true;
+                //If NumOfPlayers is empty or if NumOfPlayers is not empty and the value is a number
+                if (string.IsNullOrEmpty(NumOfPlayers) ||
+                    (!string.IsNullOrEmpty(NumOfPlayers) &&
+                    int.TryParse(NumOfPlayers, out int num1)))
+                {
+                    return true;
+                }
+            }
+
+            //If NumOfPlayers is not empty and the value is a number
+            if (!string.IsNullOrEmpty(NumOfPlayers) &&
+                int.TryParse(NumOfPlayers, out int num2))
+            {
+                //If MinutesToPlay is empty or if MinutesToPlay is not empty and the value is a number
+                if (string.IsNullOrEmpty(MinutesToPlay) ||
+                    (!string.IsNullOrEmpty(MinutesToPlay) &&
+                    int.TryParse(MinutesToPlay, out int min2)))
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -86,9 +103,24 @@ namespace MyBoardGames_UI.ViewModels
             try
             {
                 var allGames = this.DataStore.GetResult().GetAllGamesAsync();
-                var gamesThatMatchCriteria = allGames.Result.Where(g => g.MinutesToPlay <= int.Parse(MinutesToPlay) &&
-                    g.MaxNumberOfPlayers >= int.Parse(NumOfPlayers) &&
-                    g.MinNumberOfPlayers <= int.Parse(NumOfPlayers)).ToList();
+                List<Game> gamesThatMatchCriteria = new List<Game>();
+
+                //Gets all the games that match the specified criteria
+                if (!string.IsNullOrEmpty(MinutesToPlay) && !string.IsNullOrEmpty(NumOfPlayers))
+                {
+                    gamesThatMatchCriteria = allGames.Result.Where(g => g.MinutesToPlay <= int.Parse(MinutesToPlay) &&
+                        g.MaxNumberOfPlayers >= int.Parse(NumOfPlayers) &&
+                        g.MinNumberOfPlayers <= int.Parse(NumOfPlayers)).ToList();
+                }
+                else if (!string.IsNullOrEmpty(MinutesToPlay))
+                {
+                    gamesThatMatchCriteria = allGames.Result.Where(g => g.MinutesToPlay <= int.Parse(MinutesToPlay)).ToList();
+                }
+                else if (!string.IsNullOrEmpty(NumOfPlayers))
+                {
+                    gamesThatMatchCriteria = allGames.Result.Where(g => g.MaxNumberOfPlayers >= int.Parse(NumOfPlayers) &&
+                        g.MinNumberOfPlayers <= int.Parse(NumOfPlayers)).ToList();
+                }
 
                 if (gamesThatMatchCriteria.Count() > 0)
                 {
@@ -98,6 +130,7 @@ namespace MyBoardGames_UI.ViewModels
 
                     //Clear the current games from the list and then add in the new list of games
                     MatchingGames.Clear();
+                    gamesThatMatchCriteria = gamesThatMatchCriteria.OrderBy(g => g.Name).ToList();
                     foreach (var game in gamesThatMatchCriteria)
                     {
                         MatchingGames.Add(game);

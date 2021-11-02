@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -65,6 +66,7 @@ namespace MyBoardGames_UI.ViewModels
             {
                 Games.Clear();
                 var games = await DataStore.GetResult().GetAllGamesAsync();
+                games = games.OrderBy(g => g.Name).ToList();
                 foreach(var game in games)
                 {
                     Games.Add(game);

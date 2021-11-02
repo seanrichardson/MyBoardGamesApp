@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="15">
-            <Label Text="Amount of Time to Play:" FontSize="Medium" />
+            <Label Text="How Many Minutes:" FontSize="Medium" />
             <Entry Text="{Binding MinutesToPlay, Mode=TwoWay}" Keyboard="Numeric" />
             <Label Text="Number of Players:" FontSize="Medium" />
             <Entry Text="{Binding NumOfPlayers, Mode=TwoWay}" Keyboard="Numeric" />
