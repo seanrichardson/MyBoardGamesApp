@@ -52,12 +52,6 @@ namespace MyBoardGames_UI.Services
             return Database.Table<Game>().ToListAsync();
         }
 
-        //public Task<List<Game>> GetAllGamesNotAsync()
-        //{
-        //    //SQL queries are also possible
-        //    return Database.QueryAsync<Game>("SELECT * FROM [Game] WHERE [Done] = 0");
-        //}
-
         public Task<Game> GetGameAsync(int id)
         {
             return Database.Table<Game>().Where(i => i.Id == id).FirstOrDefaultAsync();
@@ -89,5 +83,22 @@ namespace MyBoardGames_UI.Services
         {
             return Database.DeleteAsync(GetGameAsync(id).Result);
         }
+
+        #region DevMethods
+        public Task<int> DropGameTableAsync()
+        {
+            return Database.DropTableAsync<Game>();
+        }
+
+        public Task<int> DeleteAllGamesAsync()
+        {
+            return Database.DeleteAllAsync<Game>();
+        }
+
+        public Task<int> AddAllGamesFromCSVAsync(List<Game> games)
+        {
+            return Database.InsertAllAsync(games);
+        }
+        #endregion
     }
 }

@@ -30,8 +30,9 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Library" Route="AllBoardGamesPage" ContentTemplate="{DataTemplate local:AllBoardGamesPage}" />
-        <ShellContent Title="Random" Route="RandomGamePage" ContentTemplate="{DataTemplate local:RandomGamePage}" />
+        <ShellContent Title="Library" Icon="icon_library.png" Route="AllBoardGamesPage" ContentTemplate="{DataTemplate local:AllBoardGamesPage}" />
+        <ShellContent Title="Random" Icon="icon_filter.png"  Route="RandomGamePage" ContentTemplate="{DataTemplate local:RandomGamePage}" />
+        <ShellContent Title="Dev Page" Icon="icon_about.png" Route="DevPage" ContentTemplate="{DataTemplate local:DevPage}" />
     </TabBar>
 
 

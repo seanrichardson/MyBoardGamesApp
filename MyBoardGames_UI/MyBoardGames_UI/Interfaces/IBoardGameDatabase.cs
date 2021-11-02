@@ -14,5 +14,8 @@ namespace MyBoardGames_UI.Services
         Task<T> GetGameAsync(Game game);
         Task<int> SaveGameAsync(T game);
         Task<int> DeleteGameAsync(int id);
+        Task<int> DropGameTableAsync();
+        Task<int> DeleteAllGamesAsync();
+        Task<int> AddAllGamesFromCSVAsync(List<Game> games);
     }
 }

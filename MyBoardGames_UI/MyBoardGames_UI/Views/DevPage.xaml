@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MyBoardGames_UI.ViewModels"
+             x:Class="MyBoardGames_UI.Views.DevPage"
+             Title="Dev Tools">
+    <ContentPage.BindingContext>
+        <vm:DevViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Add All Games" Command="{Binding AddAllGamesCommand}" Style="{StaticResource SaveButtonStyle}" Margin="30,10" />
+            <Button Text="Delete All Games" Command="{Binding DeleteAllGamesCommand}" Style="{StaticResource DeleteButtonStyle}" Margin="30,10" />
+            <Button Text="Delete Game Table" Command="{Binding DeleteGameTableCommand}" Style="{StaticResource DeleteButtonStyle}" Margin="30,10" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
