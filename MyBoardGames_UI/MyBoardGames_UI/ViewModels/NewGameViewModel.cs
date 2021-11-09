@@ -103,11 +103,11 @@ namespace MyBoardGames_UI.ViewModels
                 MaxNumberOfPlayers = int.Parse(MaxNumberOfPlayers)
             };
 
-            var duplicateExists = await DataStore.GetResult().GetGameAsync(newGame);
-            if (duplicateExists != null)
+            var duplicateExists = await DataStore.GetResult().CheckForDuplicateAsync(newGame.Name);
+            if (duplicateExists.Count > 0)
             {
-                var result = await App.Current.MainPage.DisplayAlert("Warning - Possible Duplicate", "A game already exists in the database " +
-                    "with the same data. Do you still want to save", "Yes", "No");
+                var result = await App.Current.MainPage.DisplayAlert("Warning - Possible Duplicate", "A game already exists with " +
+                    "that name. Do you still want to save?", "Yes", "No");
 
                 //If the result was "No", don't save the game and don't leave the page. Just return
                 if (!result)

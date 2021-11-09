@@ -31,25 +31,22 @@
                            Margin="30,15" 
                            HorizontalTextAlignment="Center" />
                     <Label Text="Matching Games:" FontSize="Large" Margin="30,15,30,10" />
-                    <RefreshView x:DataType="vm:RandomGameViewModel"
-                                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
-                                 Margin="30,0"
-                                 BackgroundColor="{StaticResource SecondaryDarkThemeBackground}">
-                        <CollectionView ItemsSource="{Binding MatchingGames}"
-                                SelectionMode="None">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout Padding="20,10" x:DataType="model:Game">
-                                        <Label Text="{Binding Name}"
+                    <CollectionView ItemsSource="{Binding MatchingGames}"
+                                    SelectionMode="None"
+                                    Margin="30,0"
+                                    BackgroundColor="{StaticResource SecondaryDarkThemeBackground}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="20,10" x:DataType="model:Game">
+                                    <Label Text="{Binding Name}"
                                                LineBreakMode="NoWrap"
                                                Style="{DynamicResource ListItemTextStyle}"
                                                FontSize="Medium" />
-                                        <BoxView HeightRequest="1" Color="Black" Margin="0,10,0,0"/>
-                                    </StackLayout>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </RefreshView>
+                                    <BoxView HeightRequest="1" Color="Black" Margin="0,10,0,0"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

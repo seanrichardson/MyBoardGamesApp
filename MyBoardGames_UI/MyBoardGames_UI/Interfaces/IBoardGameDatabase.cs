@@ -12,6 +12,7 @@ namespace MyBoardGames_UI.Services
         Task<List<T>> GetAllGamesAsync();
         Task<T> GetGameAsync(int id);
         Task<T> GetGameAsync(Game game);
+        Task<List<Game>> CheckForDuplicateAsync(string name);
         Task<int> SaveGameAsync(T game);
         Task<int> DeleteGameAsync(int id);
         Task<int> DropGameTableAsync();

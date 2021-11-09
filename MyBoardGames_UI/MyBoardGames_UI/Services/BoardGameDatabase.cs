@@ -65,6 +65,11 @@ namespace MyBoardGames_UI.Services
                 i.MaxNumberOfPlayers == game.MaxNumberOfPlayers).FirstOrDefaultAsync();
         }
 
+        public Task<List<Game>> CheckForDuplicateAsync(string name)
+        {
+            return Database.Table<Game>().Where(i => i.Name.Equals(name)).ToListAsync();
+        }
+
         public Task<int> SaveGameAsync(Game game)
         {
             if (game.Id != 0)

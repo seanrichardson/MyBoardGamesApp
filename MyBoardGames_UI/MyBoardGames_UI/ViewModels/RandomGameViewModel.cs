@@ -52,7 +52,6 @@ namespace MyBoardGames_UI.ViewModels
 
         public void OnAppearing()
         {
-            IsBusy = false;
             RandomGameIsVisible = false;
             MinutesToPlay = string.Empty;
             NumOfPlayers = string.Empty;
@@ -99,7 +98,6 @@ namespace MyBoardGames_UI.ViewModels
         /// </summary>
         public void OnGenerate()
         {
-            IsBusy = true;
             try
             {
                 var allGames = this.DataStore.GetResult().GetAllGamesAsync();
@@ -146,10 +144,6 @@ namespace MyBoardGames_UI.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine($"Failed to retrieve games that match the specified criteria with the following error message: {ex.Message}");
-            }
-            finally
-            {
-                IsBusy = false;
             }
         }
     }
