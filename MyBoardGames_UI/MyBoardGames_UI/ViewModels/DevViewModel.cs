@@ -43,7 +43,7 @@ namespace MyBoardGames_UI.ViewModels
             await DataStore.GetResult().DeleteAllGamesAsync();
 
             if (Device.RuntimePlatform == Device.Android)
-                Toast.MakeText(Android.App.Application.Context, "All Games Deleted", ToastLength.Short);
+                Toast.MakeText(Android.App.Application.Context, "All Games Deleted", ToastLength.Short).Show();
         }
 
         private async Task ExecuteAddAllGamesCommand()
@@ -78,7 +78,7 @@ namespace MyBoardGames_UI.ViewModels
             await DataStore.GetResult().AddAllGamesFromCSVAsync(games);
 
             if (Device.RuntimePlatform == Device.Android)
-                Toast.MakeText(Android.App.Application.Context, "All Games Added", ToastLength.Short);
+                Toast.MakeText(Android.App.Application.Context, "All Games Added", ToastLength.Short).Show();
         }
     }
 }

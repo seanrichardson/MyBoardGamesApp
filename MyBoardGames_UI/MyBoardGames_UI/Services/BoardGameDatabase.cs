@@ -15,6 +15,7 @@ namespace MyBoardGames_UI.Services
         public static readonly AsyncLazy<BoardGameDatabase> Instance = new AsyncLazy<BoardGameDatabase>(async () =>
         {
             var instance = new BoardGameDatabase();
+            //await Database.DropTableAsync<Game>();
             CreateTableResult result = await Database.CreateTableAsync<Game>();
             return instance;
 

@@ -13,6 +13,8 @@ namespace MyBoardGames_UI.Models
         public int MinutesToPlay { get; set; }
         public int MinNumberOfPlayers { get; set; }
         public int MaxNumberOfPlayers { get; set; }
+        public bool IsFavorite { get; set; }
+        public string FavImage { get; set; }
         public GenreTypes Genre { get; set; }
     }
 }

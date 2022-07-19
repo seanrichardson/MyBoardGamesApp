@@ -1,37 +1,48 @@
+Working on: Trying to figure out why the favorite image is not changing when you click the heart. It should change to signify the game is favorited. I believe it has something to do with the INotifyPropertyChanged event.
+
 Features to Add:
 
 App in General:
-	/- Change App Icon and Name
-	/- Fix the App Icon so it looks better. It looks zoomed in
 	- Maybe figure out how to add / display rules with each game?
 	- Add a start up page so it looks more professional than the grey start up screen
-	/- Add a Dev Page
-		/* This should allow the user to add all the games found in the AllGames.csv
-		/* This should allow the user to delete all the games in the database
 Library Page:
 	- Magnifying glass search button in tool bar
 	- Add batch upload functionality
-	/- Change "Add Game" to a plus icon
-	/- Add Icons to the shell tab bar
-	/- Order the games alphabetically by name
 	- Add the ability to Favorite certain games?
 	- Add a text box that says "No Games to View" when the collection view is empty
 Add Game Page:
-	/- Change "# of Minutes to Play" to "Minutes to Play"
 	- Add a time picker to Minutes to Play
 	- Fix Dark Theme vs Light Theme color issues associated with the buttons
-	/- Fixed issue that would allow the user to create a game with the same name without displaying the warning box
 Game Detail Page:
-	/- Change "# of Minutes to Play" to "Minutes to Play"
 	- Add a time picker to Minutes to Play
 	- Fix Dark Theme vs Light Theme color issues associated with the buttons
-	/- Fixed issue that would allow the user to change a game name to be the same as another game without displaying the warning box
 Random Generator Page:
-	/- BUG - with games that are greater than the number of minutes to play are being displayed
-	/- Change "Amount of Time to Play:" to "How Many Minutes:"
-	/- Order the games alphabetically by name
 	- Add the ability to generate games using only favorited games or not
-	/- Only require one of the fields to generate a game
 	- Fix UI colors associated with Dark Theme and Light Theme
-	/- Bind a command to the RefreshView that sets IsBusy back to false. This will get rid of the infinite spinning circle.
-	
+
+
+
+
+Completed:
+	App In General:
+		- Change App Icon and Name
+		- Fix the App Icon so it looks better. It looks zoomed in
+		- Add a Dev Page
+			* This should allow the user to add all the games found in the AllGames.csv
+			* This should allow the user to delete all the games in the database
+	Library Page:
+		- Change "Add Game" to a plus icon
+		- Add Icons to the shell tab bar
+		- Order the games alphabetically by name
+	Add Game Page:
+		- Change "# of Minutes to Play" to "Minutes to Play"
+		- Fixed issue that would allow the user to create a game with the same name without displaying the warning box
+	Game Detail Page:
+		- Change "# of Minutes to Play" to "Minutes to Play"
+		- Fixed issue that would allow the user to change a game name to be the same as another game without displaying the warning box
+	Random Generator Page:
+		- BUG - with games that are greater than the number of minutes to play are being displayed
+		- Change "Amount of Time to Play:" to "How Many Minutes:"
+		- Order the games alphabetically by name
+		- Only require one of the fields to generate a game
+		- Bind a command to the RefreshView that sets IsBusy back to false. This will get rid of the infinite spinning circle.

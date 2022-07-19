@@ -19,6 +19,7 @@ namespace MyBoardGames_UI.ViewModels
         public Command LoadGamesCommand { get; }
         public Command<Game> ItemTapped { get; }
         public Command AddGameCommand { get; }
+        public Command<Game> ItemFavorited { get; }
 
         public AllBoardGamesViewModel()
         {
@@ -26,6 +27,7 @@ namespace MyBoardGames_UI.ViewModels
             LoadGamesCommand = new Command(async () => await ExecuteLoadGamesCommand());
             ItemTapped = new Command<Game>(OnGameSelected);
             AddGameCommand = new Command(OnAddGame);
+            ItemFavorited = new Command<Game>(OnGameFavorited);
         }
 
         public Game SelectedGame
@@ -41,6 +43,25 @@ namespace MyBoardGames_UI.ViewModels
         private async void OnAddGame(object obj)
         {
             await Shell.Current.GoToAsync(nameof(NewGamePage));
+        }
+
+        private void OnGameFavorited(Game game)
+        {
+            IsBusy = true;
+            if (game.IsFavorite)
+            {
+                game.IsFavorite = false;
+                game.FavImage = "image_favorite_unselected.png";
+                OnPropertyChanged(game.FavImage);
+            }
+            else
+            {
+                game.IsFavorite = true;
+                game.FavImage = "image_favorite_selected.png";
+                OnPropertyChanged(game.FavImage);
+            }
+
+            IsBusy = false;
         }
 
         async void OnGameSelected(Game game)
@@ -69,6 +90,17 @@ namespace MyBoardGames_UI.ViewModels
                 games = games.OrderBy(g => g.Name).ToList();
                 foreach(var game in games)
                 {
+                    if (game.IsFavorite)
+                    {
+                        game.FavImage = "image_favorite_selected.png";
+                        OnPropertyChanged(game.FavImage);
+                    }
+                    else
+                    {
+                        game.FavImage = "image_favorite_unselected.png";
+                        OnPropertyChanged(game.FavImage);
+                    }
+
                     Games.Add(game);
                 }
             }
